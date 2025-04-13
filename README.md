@@ -28,7 +28,7 @@ pip install -r requirements.txt
 基本用法:
 
 ```bash
-python proxy_generator.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" --param-name "id" --method "POST"
+python SQLiBridge.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" --param-name "id" --method "POST"
 ```
 
 #### 参数
@@ -87,37 +87,39 @@ sqlmap -u "http://yourserver/proxy.php?s=1" --dbs --batch
 自定义目标参数名称和HTTP方法：
 
 ```bash
-python proxy_generator.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" --param-name "query" --method "GET"
+python SQLiBridge.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" --param-name "query" --method "GET"
 ```
 
 使用自定义模型：
 
 ```bash
-python proxy_generator.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" --model "gpt-4"
+python SQLiBridge.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" --model "gpt-4"
 ```
 
 指定输出文件：
 
 ```bash
-python proxy_generator.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" -o my_proxy.php
+python SQLiBridge.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" -o my_proxy.php
 ```
 
 使用自定义提示词：
 
 ```bash
-python proxy_generator.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" --custom-prompt my_prompt.txt
+python SQLiBridge.py --submit-url "http://example.com/app/input.php" --result-url "http://example.com/app/results.php" --session-cookie "PHPSESSID=abcdef123456" --custom-prompt my_prompt.txt
 ```
-
-
 
 ### Web-UI页面使用如下
 
 ![image-20250414010321131](https://xu17-1326239041.cos.ap-guangzhou.myqcloud.com/xu17/202504140103274.png)
 
-
-
 ![image-20250414010249596](https://xu17-1326239041.cos.ap-guangzhou.myqcloud.com/xu17/202504140102749.png)
 
-
-
 ![image-20250414010347674](https://xu17-1326239041.cos.ap-guangzhou.myqcloud.com/xu17/202504140103809.png)
+
+### 配合`sqlmap`使用
+
+```bash
+sqlmap -u http://192.168.129.1/proxy-example.php?s=1 --dbs
+```
+
+![image-20250414011457195](https://xu17-1326239041.cos.ap-guangzhou.myqcloud.com/xu17/202504140114706.png)

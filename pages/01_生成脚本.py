@@ -9,7 +9,7 @@ import tempfile
 from datetime import datetime
 from openai import OpenAI
 from config import DEFAULT_CONFIG
-import proxy_generator as pg
+import SQLiBridge as sb
 
 # 设置页面标题
 st.title("生成代理脚本")
@@ -141,7 +141,7 @@ if submitted:
                 }
                 
                 # 生成脚本
-                proxy_script = pg.generate_proxy_script(args, config)
+                proxy_script = sb.generate_proxy_script(args, config)
                 
                 # 保存到文件
                 with open(output_file, 'w') as f:

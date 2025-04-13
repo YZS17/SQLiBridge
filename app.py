@@ -2,6 +2,7 @@
 
 import streamlit as st
 from config import DEFAULT_CONFIG
+import SQLiBridge as sb
 
 # 页面配置
 st.set_page_config(
@@ -13,7 +14,7 @@ st.set_page_config(
 
 # 主页内容
 def main():
-    st.title("SQL注入代理脚本生成器")
+    st.title("SQLiBridge - SQL注入中转代理生成器")
     
     st.markdown("""
     ### 🛡️ 通过大语言模型生成SQL注入代理脚本
