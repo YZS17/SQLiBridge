@@ -1,0 +1,3 @@
+openai>=1.0.0
+argparse
+streamlit>=1.25.0 
